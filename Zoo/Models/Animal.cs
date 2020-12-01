@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Dierentuin.Classes
 {
@@ -8,8 +9,8 @@ namespace Dierentuin.Classes
     {
         public virtual string Name { get; set; }
         public virtual int energy { get; set; }
-        public abstract int Feed();
-        public abstract int UseEnergy();
+        public abstract Task<int> Feed();
+        public abstract Task<int> UseEnergy();
 
     }
 }

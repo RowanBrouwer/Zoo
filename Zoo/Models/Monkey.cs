@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Dierentuin.Classes
 {
-    sealed class Monkey : Animal
+    public sealed class Monkey : Animal
     {
         int maxEnergy = 100;
         int foodUsage = 10;
@@ -36,28 +37,30 @@ namespace Dierentuin.Classes
             }
         }
 
-        public override int Feed()
+        public override Task<int> Feed()
         {
             if (energy >= maxEnergy)
             {
-                return maxEnergy;
+                energy = maxEnergy;
+                return Task.FromResult<int>(energy);
             }
             else
             {
-                return energy + 25;
+                energy = energy + 25;
+                return Task.FromResult<int>(energy);
             }
         }
 
-        public override int UseEnergy()
+        public override Task<int> UseEnergy()
         {
             if (energy <= 0)
             {
-                return 0;
+                return Task.FromResult<int>(0);
             }
             else
             {
                 int adjustedEnergy = energy - energyUsage;
-                return adjustedEnergy;
+                return Task.FromResult<int>(adjustedEnergy);
             }
         }
     }

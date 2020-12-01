@@ -6,7 +6,39 @@
         xmlns:local="clr-namespace:Zoo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Viewbox>
+    <Grid Margin="0,0,0,0">
+        <Grid Margin="30,30,730,30" >
+            <Rectangle Margin="0,0,30,0" Stroke="Black"/>
+            <Label x:Name="Dead_Counter"  Content="Dieren die zijn gestorven = 0" Margin="0,0,0,400" Height="auto" Width="auto" />
+            <CheckBox x:Name="Check_Monkey" Content="Apen" IsChecked="True" Margin="30,70,100,400"/>
+            <CheckBox x:Name="Check_Lion" Content="Leeuwen" IsChecked="True" Margin="30,120,120,0"/>
+            <CheckBox x:Name="Check_Elephant" Content="Olifanten" IsChecked="True" Margin="30,170,120,0"/>
+                <Button Content="Open log-data" Click="ViewLog" Margin="0,200,30,0" Height="auto" Width="auto"/>
+                <Button Content="Delete log-data" Click="DeleteLog" Margin="0,400,30,0" Height="auto" Width="auto"/>
+        </Grid>
+        <DataGrid x:Name="Animal_View" ItemsSource="{Binding Source=_animals}" Margin="250,30,300,30" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" >
+            <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="NameCollum" Binding="{Binding Name}" Header="Name" Width="auto" />
+                    <DataGridTextColumn x:Name="EnergyCollum" Binding="{Binding energy}" Header="Energy" Width="auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Margin="700,30,30,30">
+            <Rectangle Margin="0,0,0,310" Stroke="Black"/>
+                <Label Content="Naam dier :" Margin="0,0,170,450" Height="auto" Width="auto"/>
+                <TextBox x:Name="Animal_Name" Margin="70,0,0,450" Text="{Binding Name}" TextWrapping="Wrap" Height="auto" Width="auto"/>
+                <ComboBox x:Name="Animal_Kind" Margin="0,0,0,350"  Height="auto" Width="auto">
+                <ComboBoxItem Content="Aap" IsSelected="True"/>
+                <ComboBoxItem Content="Leeuw"/>
+                <ComboBoxItem Content="Olifant"/>
+            </ComboBox>
+                <Button Click="Add_Animal" Content="Add Animal" Margin="0,0,0,220" Height="auto" Width="auto"/>
+            <Rectangle Margin="0,192,0,0" Stroke="Black"/>
+                <Button x:Name="Allbtn" Click="Feed" Content="Feed All" Margin="0,0,0,30" Height="auto" Width="auto"/>
+                <Button x:Name="Monkeybtn" Click="Feed" Content="Feed Monkeys" Margin="0,120,0,0" Height="auto" Width="auto"/>
+                <Button x:Name="Lionbtn" Click="Feed" Content="Feed Lions" Margin="0,270,0,0" Height="auto" Width="auto"/>
+                <Button x:Name="Elephantbtn" Click="Feed" Content="Feed Elephants" Margin="0,420,0,0" Height="auto" Width="auto"/>
+        </Grid>
     </Grid>
+    </Viewbox>
 </Window>
