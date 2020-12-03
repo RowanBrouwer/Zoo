@@ -26,6 +26,7 @@ namespace Zoo
     public partial class MainWindow : Window
     {
         public List<Animal> _animals = new List<Animal>();
+        public List<Animal> Back_Animals = new List<Animal>();
         int deaths = 0;
         double ms = 0; double sec = 0; int min = 0;
         string spacer = "-------------------------------------------------------------------";
@@ -56,7 +57,7 @@ namespace Zoo
         {
             Update();
         }
-    
+
 
         public Task Update()
         {
@@ -64,20 +65,21 @@ namespace Zoo
             List<Lion> lions = _animals.OfType<Lion>().ToList();
             List<Elephant> elephants = _animals.OfType<Elephant>().ToList();
             _animals = DierentuinApi.UpdateAnimals(monkeys, lions, elephants);
-            List<Monkey> _backMonkeys;
-            List<Lion> _backLions;
-            List<Elephant> _backElephants;
+            Back_Animals = _animals.ToList();
 
-            if (Check_Monkey.IsChecked.Value)
-            {;
-            }
-            if (Check_Lion.IsChecked.Value)
-            {
-            }
-            if (Check_Elephant.IsChecked.Value)
-            {
-            }
-            
+            //if (Check_Monkey.IsChecked.Value)
+            //{
+            //    Back_Animals.RemoveAll(Back_Animals.Where(a => a.GetType == typeof<Monkey>()));
+            //}
+            //if (Check_Lion.IsChecked.Value)
+            //{
+            //    Back_Animals.AddRange(lions);
+            //}
+            //if (Check_Elephant.IsChecked.Value)
+            //{
+            //    Back_Animals.AddRange(elephants);
+            //}
+
             return Task.CompletedTask;
         }
 

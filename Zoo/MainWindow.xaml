@@ -17,7 +17,7 @@
                 <Button Content="Open log-data" Click="ViewLog" Margin="0,200,30,0" Height="auto" Width="auto"/>
                 <Button Content="Delete log-data" Click="DeleteLog" Margin="0,400,30,0" Height="auto" Width="auto"/>
         </Grid>
-        <DataGrid x:Name="Animal_View" ItemsSource="{Binding Source=_animals}" Margin="250,30,300,30" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" >
+            <DataGrid x:Name="Animal_View" ItemsSource="{Binding Source=Back_Animals}" Margin="250,30,300,30" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" >
             <DataGrid.Columns>
                     <DataGridTextColumn x:Name="NameCollum" Binding="{Binding Name}" Header="Name" Width="auto" />
                     <DataGridTextColumn x:Name="EnergyCollum" Binding="{Binding energy}" Header="Energy" Width="auto" />
